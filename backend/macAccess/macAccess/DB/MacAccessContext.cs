@@ -1,6 +1,4 @@
-﻿using macAccess.Classes;
-
-namespace macAccess.DB;
+﻿namespace macAccess.DB;
 
     public class MacAccessContext: DbContext
     {

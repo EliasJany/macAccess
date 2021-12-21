@@ -3,8 +3,8 @@
     public class MacMini
     {
         public int Id { get; set; }
-        public String Name { get; set; }
-        public String Mac { get; set; }
+        public string Name { get; set; } = "";
+        public string Mac { get; set; } = "";
 
     }
 }
