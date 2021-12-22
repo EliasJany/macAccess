@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "matura-trainer": {
+    "macaccess": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -42,7 +42,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/matura-trainer",
+            "outputPath": "dist/macaccess",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -93,10 +93,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "matura-trainer:build:production"
+              "browserTarget": "macaccess:build:production"
             },
             "development": {
-              "browserTarget": "matura-trainer:build:development"
+              "browserTarget": "macaccess:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -104,11 +104,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "matura-trainer:build"
+            "browserTarget": "macaccess:build"
           }
         }
       }
     }
   },
-  "defaultProject": "matura-trainer"
+  "defaultProject": "macaccess"
 }
