@@ -6,8 +6,7 @@
         public MacMini? MacMini { get; set; }
         public int CPU { get; set; }
         public int RAM { get; set; }
-        public int SSD { get; set; }
-        public int HDD { get; set; }
+        public int Speicher { get; set; }
         public int Netzwerk { get; set; }
     }
 }

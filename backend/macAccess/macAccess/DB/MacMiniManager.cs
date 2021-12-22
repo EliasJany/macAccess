@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace macAccess.DB
 {
+    public record MacMiniDTO(int id, string name, string mac, int cpu, int ram, int speicher, int netzwerk);
+
     public class MacMiniManager
     {
         private readonly MacAccessContext context;
@@ -22,42 +24,46 @@ namespace macAccess.DB
             await context.SaveChangesAsync();
         }
 
-      /*  public async Task<bool> RemoveHomeStation(int id)
+        public async Task<bool> RemoveMacMini(int id)
         {
-            var homeStation = await context.HomeStations.FirstOrDefaultAsync(h => h.Id == id);
-            if (homeStation == null)
+            var macMini = await context.MacMinis.FirstOrDefaultAsync(h => h.Id == id);
+            if (macMini == null)
                 return false;
 
-            context.HomeStations.Remove(homeStation);
+            context.MacMinis.Remove(macMini);
             await context.SaveChangesAsync();
             return true;
         }
 
-        public async Task<bool> UpdateHomeStation(HomeStation homeStation)
+        public async Task<bool> UpdateMacMini(MacMini macMini)
         {
-            if (homeStation == null)
+            if (macMini == null)
                 return false;
 
-            context.HomeStations.Update(homeStation);
+            context.MacMinis.Update(macMini);
             await context.SaveChangesAsync();
             return true;
         }
 
-        public async Task<HomeStation> GetHomeStation(int id)
+        public async Task<MacMini> GetMacMini(int id)
         {
-            return await context.HomeStations.Where(h => h.Id == id).FirstOrDefaultAsync();
+            return await context.MacMinis.Where(h => h.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<HomeStation>> GetAllHomeStation(int id)
+        public async Task<IEnumerable<MacMiniDTO>> GetAllMacMini()
         {
-            return (IEnumerable<HomeStation>)await context.RegisterDatas.Where(rd => rd.User.Id == id)
-                .Join(context.HomeStations, data => data.HomeStation.Id, home => home.Id, (home, data) => home)
+            return (IEnumerable<MacMiniDTO>)await context.MacMiniDatas
+                .Select(m => new MacMiniDTO(m.MacMini.Id, m.MacMini.Name, m.MacMini.Mac, m.CPU, m.RAM, m.Speicher, m.Netzwerk))
                 .ToListAsync();
-        }*/
+        }
         #endregion
 
         #region MacMiniData
-     
+        public async Task AddMacMiniData(MacMiniData macMiniData)
+        {
+            context.MacMiniDatas.Add(macMiniData);
+            await context.SaveChangesAsync();
+        }
         #endregion
 
     }
